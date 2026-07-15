@@ -103,3 +103,11 @@ td {
         font-size: 0.9rem;
     }
 }
+
+.campo-texto {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #c9d0d8;
+    border-radius: 8px;
+    font-size: 1rem;
+}
