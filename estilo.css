@@ -111,3 +111,11 @@ td {
     border-radius: 8px;
     font-size: 1rem;
 }
+
+.historico {
+    padding-left: 22px;
+}
+
+.historico li {
+    margin-bottom: 8px;
+}
