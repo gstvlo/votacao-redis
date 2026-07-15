@@ -119,3 +119,39 @@ td {
 .historico li {
     margin-bottom: 8px;
 }
+
+.lider {
+    padding: 12px;
+    border-radius: 8px;
+    background: #fff8d8;
+}
+
+.painel {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin: 18px 0;
+}
+
+.indicador {
+    padding: 14px;
+    border: 1px solid #dfe3e8;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.indicador strong {
+    display: block;
+    font-size: 1.45rem;
+}
+
+.indicador span {
+    font-size: 0.85rem;
+    color: #555f6b;
+}
+
+@media (max-width: 700px) {
+    .painel {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}

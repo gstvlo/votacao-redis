@@ -79,6 +79,22 @@ $historico = $redis->lrange(
 0,
 9
 );
+$totalParticipantes = (int) $redis->scard(
+'votacao:participantes'
+);
+$totalOpcoes = (int) $redis->zcard(
+'votacao:bancos'
+);
+$totalHistorico = (int) $redis->llen(
+'votacao:historico'
+);
+$nomeLider = null;
+$votosLider = 0;
+foreach ($ranking as $banco => $votos) {
+$nomeLider = (string) $banco;
+$votosLider = (int) $votos;
+break;
+}
 $status = $_GET['status'] ?? '';
 $mensagens = [
 'registrado' => 'Voto registrado com sucesso!',
@@ -137,7 +153,32 @@ required>
 </section>
 <section class="cartao">
 <h2>Ranking atual</h2>
+<?php if ($nomeLider !== null && $votosLider > 0): ?>
+<p class="lider">
+Líder atual:
+<strong><?= htmlspecialchars($nomeLider) ?></strong>
+com <?= $votosLider ?> voto(s).
+</p>
+<?php endif; ?>
 <p class="total">Total de votos: <?= $totalVotos ?></p>
+<div class="painel">
+<div class="indicador">
+<strong><?= $totalVotos ?></strong>
+<span>votos</span>
+</div>
+<div class="indicador">
+<strong><?= $totalParticipantes ?></strong>
+<span>participantes</span>
+</div>
+<div class="indicador">
+<strong><?= $totalOpcoes ?></strong>
+<span>opções</span>
+</div>
+<div class="indicador">
+<strong><?= $totalHistorico ?></strong>
+<span>itens no histórico</span>
+</div>
+</div>
 <table>
 <thead>
 <tr>
