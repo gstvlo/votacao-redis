@@ -155,3 +155,15 @@ td {
         grid-template-columns: repeat(2, 1fr);
     }
 }
+
+.tempo {
+    padding: 10px 12px;
+    border-left: 4px solid #1261a0;
+    background: #eef7ff;
+}
+
+.encerrada {
+    padding: 12px;
+    border-radius: 8px;
+    background: #fff1f1;
+}
